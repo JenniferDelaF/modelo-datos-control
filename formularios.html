@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<title>Formularios</title>
+</head>
+<body>
+	<div class="container">
+		<form name="myForm" onsubmit="return false" action="">
+			<div class="row mt-3">
+				<div class="col-3 offset-3">
+					<label for="nombre" class="form-label">Nombre</label>
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" onblur="validateName()">
+						<label for="nombre">Nombre</label>
+						<small class="text-danger" id="name-validation"></small>
+					</div>
+				</div>
+				<div class="col-4 offset-2">
+					<label for="correo" class="form-label">Correo Electronico</label>
+					<div class="form-floating mb-3">
+						<input type="text" class="form-control" id="correo" aria-describedby="ayuda-correo" placeholder="correo@correo.com"   onblur="validateMail()">
+						<small class="text-danger" id="mail-validation"></small>
+					</div>
+				</div>				
+			</div>
+			<div class="row mt-3">
+				<div class="col-3 offset-3">
+					<div class="mb-3">
+						<label for="mensaje" class="form-label">Mensaje</label>
+						<textarea class="form-control" name="mensaje" id="mensaje" onblur="validateMenssage()"></textarea>
+						<small class="text-danger" id="message-validation"></small>
+					</div>
+				</div>
+				<div class="col-4 offset-2">
+					<div class="row mb-3">
+						<div class="col-6">
+							<label for="estadoCivil" class="form-label">Estado Civil</label>
+							<div class="form-check">
+								<input type="radio" name="mi-radio-button" class="form-check-input" id="radio-1">
+								<label for="radio-1" class="form-check-label">Soltero</label>
+							</div>
+							<div class="form-check">
+								<input type="radio" name="mi-radio-button" class="form-check-input" id="radio-2">
+								<label for="radio-2" class="form-check-label">Casado</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<label for="pais" class="form-label">País</label>
+							<select name="pais" id="pais" class="form-select mb-3" aria-label="Selección de país">
+								<option value="mexico">México</option>
+								<option value="españa">España</option>
+								<option value="colombia">Colombia</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-md-12 d-flex justify-content-center">
+					<div class="form-check">
+						<input type="checkbox" name="checkbox" class="form-check-input" id="checkbox">
+						<label for="checkbox-1" class="form-check-label">Acepto los términos y condiciones</label>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-3 ">
+				<div class="col-md-12 d-flex justify-content-center">
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script>
+		var valido = "jenniferdelafuente";
+
+		var u_name = document.myForm.nombre;
+		var mail = document.myForm.correo;
+		var message = document.myForm.mensaje;
+
+		function validateName(){
+			if((u_name.value).toLowerCase() == valido){
+				u_name.classList.remove("is-valid");
+				u_name.classList.remove("is-invalid");
+				u_name.classList.add("is-valid");
+				document.getElementById("name-validation").innerText = "";
+			}
+			else 
+			{
+				u_name.classList.remove("is-valid");
+				u_name.classList.remove("is-invalid");
+				u_name.classList.add("is-invalid");
+				document.getElementById("name-validation").innerText = "Introduzca mi nombre y primer apellido";
+			}
+		}
+
+
+		function validateMail(){
+			if((mail.value).toLowerCase() == valido){
+				mail.classList.remove("is-valid");
+				mail.classList.remove("is-invalid");
+				mail.classList.add("is-valid");document.getElementById("mail-validation").innerText = "";
+			}
+			else 
+			{
+				mail.classList.remove("is-valid");
+				mail.classList.remove("is-invalid");
+				mail.classList.add("is-invalid");
+				document.getElementById("mail-validation").innerText = "Introduzca mi nombre y primer apellido";
+			}
+		}
+
+		function validateMenssage(){
+			if ((message.value).toLowerCase() == valido)
+			{
+				message.classList.remove("is-valid");
+				message.classList.remove("is-invalid");
+				message.classList.add("is-valid");
+				document.getElementById("message-validation").innerText = "";
+			}
+			else {
+				message.classList.remove("is-valid");
+				message.classList.remove("is-invalid");
+				message.classList.add("is-invalid");
+				document.getElementById("message-validation").innerText = "Introduzca mi nombre y primer apellido";
+			}
+		}
+	</script>
+</body>
+</html>
